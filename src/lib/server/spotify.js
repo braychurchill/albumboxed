@@ -3,7 +3,7 @@ import { env } from '$env/dynamic/private';
 import { dev } from '$app/environment';
 
 /**
- * @typedef {{ access_token: string, refresh_token: string, expires_at: number }} SpotifySession
+ * @typedef {{ access_token: string, refresh_token: string, expires_at: number, scope?: string }} SpotifySession
  */
 
 const SESSION_COOKIE = 'sp_session';

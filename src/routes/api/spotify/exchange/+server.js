@@ -51,7 +51,8 @@ export async function GET(event) {
     writeSession(event, {
       access_token: access,
       refresh_token: data.refresh_token ?? '',
-      expires_at
+      expires_at,
+      scope: typeof data.scope === 'string' ? data.scope : undefined
     });
 
   } catch (e) {
