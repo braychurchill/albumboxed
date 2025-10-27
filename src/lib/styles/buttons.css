@@ -1,0 +1,96 @@
+:root{
+  --btn-radius: 12px;
+  --btn-shadow: 0 6px 18px rgba(0,0,0,.25);
+  --ring: 0 0 0 3px rgba(58,122,254,.35);
+  --ui-bg: rgba(255,255,255,.04);
+  --ui-line: rgba(255,255,255,.12);
+  --primary: #3a7afe;
+  --primary-600: #2f6df0;
+  --danger: #ff5d5d;
+  --text: #eaeaea;
+  --muted: #a9acb2;
+}
+
+/* Base button */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  border-radius: var(--btn-radius);
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .08s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease, opacity .15s ease;
+  box-shadow: var(--btn-shadow);
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn:active{ transform: translateY(1px) scale(.99); }
+.btn[disabled], .btn[aria-disabled="true"]{ opacity:.6; cursor:not-allowed; box-shadow:none; }
+
+/* Sizes */
+.s-sm { padding: .45rem .7rem; font-size: .85rem; }
+.s-md { padding: .62rem 1rem; font-size: .95rem; }
+.s-lg { padding: .85rem 1.15rem; font-size: 1.05rem; }
+
+/* Variants */
+.v-primary{
+  background: linear-gradient(180deg, var(--primary), var(--primary-600));
+  border-color: transparent;
+}
+.v-primary:hover{ filter: brightness(1.05); }
+.v-primary:focus-visible{ outline: none; box-shadow: var(--ring); }
+
+.v-secondary{
+  background: var(--ui-bg);
+  border-color: var(--ui-line);
+}
+.v-secondary:hover{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18); }
+.v-secondary:focus-visible{ outline: none; box-shadow: var(--ring); }
+
+.v-ghost{
+  background: transparent;
+  border-color: var(--ui-line);
+  box-shadow: none;
+}
+.v-ghost:hover{ background: rgba(255,255,255,.06); }
+.v-ghost:focus-visible{ outline: none; box-shadow: var(--ring); }
+
+.v-danger{
+  background: linear-gradient(180deg, var(--danger), #e04b4b);
+  border-color: transparent;
+}
+.v-danger:hover{ filter: brightness(1.05); }
+.v-danger:focus-visible{ outline: none; box-shadow: 0 0 0 3px rgba(255,93,93,.35); }
+
+/* Loading spinner */
+.btn .spinner{
+  width: 1em; height: 1em; border-radius: 999px;
+  border: 2px solid rgba(255,255,255,.5);
+  border-top-color: rgba(255,255,255,1);
+  animation: spin .8s linear infinite;
+}
+.btn[data-loading="true"] { pointer-events:none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Icon buttons (if you pass only an icon) */
+.btn.icon { padding: .55rem; width: 2.2rem; height: 2.2rem; }
+
+/* Already added track */
+.v-success {
+  background: #15c25a;
+  border-color: transparent;
+  color: #000;
+}
+.v-success:hover {
+  filter: brightness(1.05);
+}
+
+/* In backlog indicator */
+.queued {
+  opacity: 0.7;
+  border-color: var(--primary);
+}
